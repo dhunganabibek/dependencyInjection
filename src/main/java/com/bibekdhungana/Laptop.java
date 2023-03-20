@@ -2,21 +2,27 @@ package com.bibekdhungana;
 
 import java.util.Objects;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class Laptop {
 
     private int id;
     private String name;
     private String color;
-    private Charger laptop;
+
+    @Autowired
+    @Qualifier("chargerTwo")
+    private Charger charger;
 
     public Laptop() {
     }
 
-    public Laptop(int id, String name, String color, Charger laptop) {
+    public Laptop(int id, String name, String color, Charger charger) {
         this.id = id;
         this.name = name;
         this.color = color;
-        this.laptop = laptop;
+        this.charger = charger;
     }
 
     public int getId() {
@@ -43,49 +49,12 @@ public class Laptop {
         this.color = color;
     }
 
-    public Charger getLaptop() {
-        return this.laptop;
+    public Charger getCharger() {
+        return this.charger;
     }
 
-    public void setLaptop(Charger laptop) {
-        this.laptop = laptop;
-    }
-
-    public Laptop id(int id) {
-        setId(id);
-        return this;
-    }
-
-    public Laptop name(String name) {
-        setName(name);
-        return this;
-    }
-
-    public Laptop color(String color) {
-        setColor(color);
-        return this;
-    }
-
-    public Laptop laptop(Charger laptop) {
-        setLaptop(laptop);
-        return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Laptop)) {
-            return false;
-        }
-        Laptop laptop = (Laptop) o;
-        return id == laptop.id && Objects.equals(name, laptop.name) && Objects.equals(color, laptop.color)
-                && Objects.equals(laptop, laptop.laptop);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, color, laptop);
+    public void setCharger(Charger charger) {
+        this.charger = charger;
     }
 
     @Override
@@ -94,7 +63,7 @@ public class Laptop {
                 " id='" + getId() + "'" +
                 ", name='" + getName() + "'" +
                 ", color='" + getColor() + "'" +
-                ", laptop='" + getLaptop() + "'" +
+                ", charger='" + getCharger() + "'" +
                 "}";
     }
 

@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="charger" class="com.bibekdhungana.Charger">
+
+    <context:annotation-config />
+
+    <bean id="chargerOne" class="com.bibekdhungana.Charger">
         <property name="id" value="1" />
         <property name="name" value="Apple" />
         <property name="color" value="white" />
+    </bean>
+
+    <bean id="chargerTwo" class="com.bibekdhungana.Charger">
+        <property name="id" value="3" />
+        <property name="name" value="HP" />
+        <property name="color" value="brown" />
     </bean>
 
 
@@ -15,7 +25,7 @@
         <property name="id" value="2" />
         <property name="name" value="Apple" />
         <property name="color" value="brown" />
-        <property name="laptop" ref="charger" />
+        <property name="charger" ref="charger" />
     </bean>
 
 

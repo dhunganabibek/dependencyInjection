@@ -41,37 +41,6 @@ public class Charger {
         this.color = color;
     }
 
-    public Charger id(int id) {
-        setId(id);
-        return this;
-    }
-
-    public Charger name(String name) {
-        setName(name);
-        return this;
-    }
-
-    public Charger color(String color) {
-        setColor(color);
-        return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Charger)) {
-            return false;
-        }
-        Charger charger = (Charger) o;
-        return id == charger.id && Objects.equals(name, charger.name) && Objects.equals(color, charger.color);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, color);
-    }
-
     @Override
     public String toString() {
         return "{" +
